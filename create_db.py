@@ -1,13 +1,6 @@
-from sqlalchemy import create_engine
+import sqlite3
 
-# pip install SQLAlchemy
-
-# class Todo(Base):
-#     __tablename__ = 'Todo'
-#     id = Column(Integer, primary_key=True)
-#     text = Column(String(200))
-#     complete = Column(Boolean)
-#
+conn = sqlite3.connect('todo.db')
 
 sql_query = """
 CREATE TABLE IF NOT EXISTS Todo (
@@ -17,7 +10,5 @@ CREATE TABLE IF NOT EXISTS Todo (
 );
 """
 
-# Create an engine that stores data in the local directory's
-# sqlalchemy_example.db file.
-engine = create_engine('sqlite:///todo.db')
-engine.execute(sql_query)
+conn.execute(sql_query)
+conn.close()

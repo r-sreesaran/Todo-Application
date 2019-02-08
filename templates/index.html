@@ -1,13 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Todo App</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-</head>
+{% include "header.html" %}
 <body>
 <div class="container">
     <h1>Todo List</h1>
@@ -21,13 +14,13 @@
         <h2>Incomplete Items</h2>
         <ul>
             {% for todo in incomplete %}
-            <li style="font-size: 10pt">{{ todo.text }} <a href="{{ url_for('complete', id=todo.id) }}">Mark As Complete</a></li>
+            <li style="font-size: 10pt">{{ todo[1] }} <a href="{{ url_for('complete', id=todo[0]) }}">Mark As Complete</a></li>
             {% endfor %}    
         </ul>
         <h2>Completed Items</h2>
         <ul>
             {% for todo in complete %}
-            <li style="font-size: 30pt">{{ todo.text }}</li>
+            <li style="font-size: 20pt">{{ todo[1] }}</li>
             {% endfor %}
         </ul>
     </div>
