@@ -20,7 +20,7 @@
         <h2>Completed Items</h2>
         <ul>
             {% for todo in complete %}
-            <li style="font-size: 20pt">{{ todo[1] }}</li>
+            <li style="font-size: 20pt">{{ todo[1] }}</li> <a href="{{ url_for('delete', id=todo[0]) }}"> delete </a>
             {% endfor %}
         </ul>
     </div>

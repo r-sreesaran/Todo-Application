@@ -52,3 +52,9 @@ def get_incomplete():
     return execute_query(sql_query).fetchall()
 
 
+def delete_item(id):
+    """
+    function to delete item 
+    """
+    sql_query = """ DELETE from Todo WHERE id= %s""" % (id)
+    execute_query(sql_query)
