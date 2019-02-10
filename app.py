@@ -1,12 +1,14 @@
 from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 from db_functions import add_todo_item, mark_complete, get_complete, get_incomplete, delete_item
+from create_db import createtable
 
 app = Flask(__name__)
 
 
 @app.route('/')
-def index():
+def index(): 
+    createtable()
     incomplete = get_incomplete()
     complete = get_complete()
     return render_template('index.html', incomplete=incomplete, complete=complete)
