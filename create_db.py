@@ -7,6 +7,7 @@ def createtable():
     CREATE TABLE IF NOT EXISTS Todo (
     id INTEGER PRIMARY KEY,
     text TEXT,
+    priority TEXT,
     complete boolean
     );
     """

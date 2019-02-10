@@ -14,13 +14,13 @@ def execute_query(sql_query):
     return result
 
 
-def add_todo_item(text):
+def add_todo_item(text,priority):
     """
-    function to add todo text into the database
+    function to add todo text and its priority into the database
     :param text: text input by the user
     :return: None
     """
-    sql_query = """insert into Todo(text,complete) VALUES ( '%s',%s )""" % (text, 0)
+    sql_query = """insert into Todo(text,priority,complete) VALUES ( '%s','%s',%s )""" % (text,priority, 0)
     execute_query(sql_query)
 
 
