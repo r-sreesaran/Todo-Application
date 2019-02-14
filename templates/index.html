@@ -14,11 +14,14 @@
     </div>
     <div>
         <h2>Incomplete Items</h2>
-        <ul>
-            {% for todo in incomplete %}
-            <li style="font-size: 10pt">{{ todo[1] }}  priority: {{todo[2]}} <a href="{{ url_for('complete', id=todo[0]) }}">Mark As Complete</a></li>
+       <div class="container"> 
+        <div class="row">
+                
+           {% for todo in incomplete %}
+            <div class="col-md-4"  style="font-size: 10pt" ><p>{{ todo[1] }}  priority: {{todo[2]}} <a href="{{ url_for('complete', id=todo[0]) }}">Mark As Complete</a> </p></div>
             {% endfor %}    
-        </ul>
+        </div>
+        </div>
         <h2>Completed Items</h2>
         <ul>
             {% for todo in complete %}
