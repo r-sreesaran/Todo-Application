@@ -33,7 +33,14 @@ def mark_complete(id):
     sql_query = """UPDATE Todo set complete= %s where id= %s""" % (1, id)
     execute_query(sql_query)
 
+def move_back(id):
+    """
+    function to undo the changes
+    """
+    sql_query = """ UPDATE Todo set complete= %s where id= %s """ % (0,id)
+    execute_query(sql_query)
 
+ 
 def get_complete():
     """
     function to get all complete todo items
