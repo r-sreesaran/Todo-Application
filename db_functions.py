@@ -20,7 +20,7 @@ def add_todo_item(text,priority):
     :param text: text input by the user
     :return: None
     """
-    sql_query = """insert into Todo(text,priority,complete) VALUES ( '%s','%s',%s )""" % (text,priority, 0)
+    sql_query = """insert into Todo(text1,priority,complete) VALUES ( '%s','%s',%s )""" % (text,priority, 0)
     execute_query(sql_query)
 
 
@@ -65,3 +65,10 @@ def delete_item(id):
     """
     sql_query = """ DELETE from Todo WHERE id= %s""" % (id)
     execute_query(sql_query)
+
+def update_item(id,text,priority):
+    """
+    function to update item
+    """
+    sql_query = """ UPDATE Todo set text1 = %s, priority = %s where id= %s""" % (text,priority,id)
+    execute_query(sql_query) 

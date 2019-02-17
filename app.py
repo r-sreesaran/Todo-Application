@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
-from db_functions import add_todo_item, mark_complete, get_complete, get_incomplete, delete_item, move_back
+from db_functions import add_todo_item, mark_complete, get_complete, get_incomplete, delete_item, move_back, update_item
 from create_db import createtable
 
 app = Flask(__name__)
@@ -34,6 +34,12 @@ def complete(id):
 def delete(id):
     delete_item(id)
     return redirect(url_for('index'))
+
+@app.route('/update/<id>',methods=['POST'])
+def update(id):
+    update_item(id,text=request.form['text'],priority=request.form['priority'])
+    return redirect(url_for('index'))
+
 
 if __name__ == '__main__':
     app.run(debug=True)

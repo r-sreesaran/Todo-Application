@@ -6,7 +6,7 @@ def createtable():
     sql_query = """
     CREATE TABLE IF NOT EXISTS Todo (
     id INTEGER PRIMARY KEY,
-    text TEXT,
+    text1 TEXT,
     priority TEXT,
     complete boolean
     );
