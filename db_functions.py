@@ -70,5 +70,5 @@ def update_item(id,text,priority):
     """
     function to update item
     """
-    sql_query = """ UPDATE Todo set text1 = %s, priority = %s where id= %s""" % (text,priority,id)
+    sql_query = """ UPDATE Todo set text1 = '%s', priority = '%s' where id= %s""" % (text,priority,id)
     execute_query(sql_query) 
