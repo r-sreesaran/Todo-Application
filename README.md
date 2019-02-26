@@ -19,5 +19,14 @@ The list contains a series of individual small tasks that have to be completed o
 3. Python testing framework 
 4. ui testing framework
 
+### steps to run application 
+
+1. Download the code 
+2. Install the latest python 
+3. Install Flask
+4. Run python app.py 
+5. Navigate to localhost:8000
+
+
 
 
