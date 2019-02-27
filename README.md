@@ -25,7 +25,7 @@ The list contains a series of individual small tasks that have to be completed o
 2. Install the latest python 
 3. Install Flask
 4. Run python app.py 
-5. Navigate to localhost:8000
+5. Navigate to localhost:5000
 
 
 
