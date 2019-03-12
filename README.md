@@ -29,12 +29,16 @@ The list contains a series of individual small tasks that have to be completed o
 
 ### List of desirable features
 
-1. Add field to mark the time of completion
-2. Send out email or message notification for completion of task
-3. Gamification of task 
-4. Managing the task list for multiple users 
-5. Email verification for users 
-6. Account creation using OAuth
+1. Support for tags and way to segeragate task list.
+2. Add field to mark the time of completion
+3. Send out email or message notification for completion of task
+4. Gamification of task 
+5. Managing the task list for multiple users 
+6. Email verification for users 
+7. Account creation using OAuth
+8. Intutive UI
+9. Fields to accomadate the entire text.
+
 
 
 
