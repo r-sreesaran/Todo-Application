@@ -20,12 +20,13 @@
        <div class="container"> 
         <div class="row">
            {% for todo in incomplete %}
-          <form action="{{url_for('update',id=todo[0])}}" method="POST">
+         <form action="{{url_for('update',id=todo[0])}}" method="POST">
         <input name="priority" type="text" class="text" value="{{todo[2]}}"> 
         <input name="text" type="text" class="text" value="{{ todo[1] }}"> 
-        <input type="submit" id="submit" value="save">   
-        </form>
-         <p> <a href="{{ url_for('complete', id=todo[0]) }}">completed </a> <a href="{{ url_for('delete', id=todo[0]) }}">delete </a>  </p>
+       <a> <input type="submit" id="submit" value="save">   </a>
+         <a href="{{ url_for('complete', id=todo[0]) }}">completed </a> <a href="{{ url_for('delete', id=todo[0]) }}">delete </a>  
+        
+    </form>
             {% endfor %}    
         </div>
         </div>
