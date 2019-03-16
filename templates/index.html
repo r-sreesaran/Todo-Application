@@ -12,34 +12,25 @@
             <input type="text" placeholder="task" name="todoitem">
             <input type="submit" value="Add Item">
         </form>
-
-
     </div>
     <div>
         <h2>Incomplete Items</h2>
-       <div class="container"> 
-        <div class="row">
            {% for todo in incomplete %}
          <form action="{{url_for('update',id=todo[0])}}" method="POST">
-        <input name="priority" type="text" class="text" value="{{todo[2]}}"> 
-        <input name="text" type="text" class="text" value="{{ todo[1] }}"> 
+        <input id="priority" name="priority"  type="text" class="text" value="{{todo[2]}}"> 
+        <input  name="text" type="text" class="text" value="{{ todo[1] }}"> 
        <a> <input type="submit" id="submit" value="save">   </a>
-         <a href="{{ url_for('complete', id=todo[0]) }}">completed </a> <a href="{{ url_for('delete', id=todo[0]) }}">delete </a>  
+         <a href="{{ url_for('complete', id=todo[0]) }}">completed </a> 
+         <a href="{{ url_for('delete', id=todo[0]) }}">delete </a>  
         
     </form>
             {% endfor %}    
-        </div>
-        </div>
         <h2>Completed Items</h2>
-        <div class="container"> 
-            <div class="row">
           
         {% for todo in complete %}
-            <p>{{ todo[1] }}</p> <p> <a href="{{ url_for('delete', id=todo[0]) }}"> delete </a> <a href="{{ url_for('undo', id=todo[0]) }}"> undo</a></p>
+            {{ todo[1] }}  <a href="{{ url_for('delete', id=todo[0]) }}"> delete </a> <a href="{{ url_for('undo', id=todo[0]) }}"> undo</a>
             {% endfor %}
-            </div>
-            </div>
-    </div>
+      </div>
 	</div>
 </body>
 </html>

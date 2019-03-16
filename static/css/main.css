@@ -1,0 +1,13 @@
+#priority {
+    width: 40px;
+}
+.text {
+   border:0px;
+}
+.text:focus {
+    outline-width: 0;
+}
+#submit {
+    background-color: transparent;
+    border: 0;
+}
