@@ -18,8 +18,7 @@ def testEmailSending():
          global htmformat
          sender_email = "sreesaran.developer@gmail.com"
          receiver_email = "r.sreesaran@gmail.com"
-         password = "Xtech4582"
-
+         
          message = MIMEMultipart("alternative")
          message["Subject"] = "Pending List"
          message["From"] = sender_email
