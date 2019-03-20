@@ -31,7 +31,7 @@ def testEmailSending():
      
          context = ssl.create_default_context()
          with  smtplib.SMTP_SSL("smtp.gmail.com", "465",context=context) as server:
-                server.login("sreesaran.developer@gmail.com", password)
+                server.login("sreesaran.developer@gmail.com", "")
                 server.sendmail("sreesaran.developer@gmail.com", "r.sreesaran@gmail.com", message.as_string())
                 server.quit()
             
