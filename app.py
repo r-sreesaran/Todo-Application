@@ -1,45 +1,27 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
-from db_functions import add_todo_item, mark_complete, get_complete, get_incomplete, delete_item, move_back, update_item
-from create_db import createtable
-
-app = Flask(__name__)
+from service import ToDoService
+from flask import jsonify
 
 
-@app.route('/')
-def index(): 
-    createtable()
-    incomplete = get_incomplete()
-    complete = get_complete()
-    return render_template('index.html', incomplete=incomplete, complete=complete)
+app = Flask(__name__)             # create an app instance
+
+@app.route("/")                   # at the end point /
+def hello():                      # call method hello
+    return "Hello World!"         # which returns "hello world"
+
+@app.route("/create")
+def create_items():
+    
+    params = {"text":"ironman","Description":"marvel"}
+    return jsonify(ToDoService().create(params))
+    
+@app.route("/list")
+def create_todo():
+    return jsonify(ToDoService().getalldata())
+    
+
+if __name__ == "__main__":        # on running python app.py
+    app.run(debug=True,host="0.0.0.0")                     # run the flask app
 
 
-@app.route('/add', methods=['POST'])
-def add():
-    add_todo_item(text=request.form['todoitem'],priority=request.form['priority'])
-    return redirect(url_for('index'))
-
-@app.route('/undo/<id>')
-def undo(id):
-    move_back(id)
-    return redirect(url_for('index'))
-
-
-@app.route('/complete/<id>')
-def complete(id):
-    mark_complete(id)
-    return redirect(url_for('index'))
-
-@app.route('/delete/<id>')
-def delete(id):
-    delete_item(id)
-    return redirect(url_for('index'))
-
-@app.route('/update/<id>',methods=['POST'])
-def update(id):
-    update_item(id,text=request.form['text'],priority=request.form['priority'])
-    return redirect(url_for('index'))
-
-
-if __name__ == '__main__':
-    app.run(debug=True)
