@@ -5,6 +5,8 @@ class Schema:
         self.conn = sqlite3.connect('todo.db')
         #self.create_user_table()
         self.create_to_do_table()
+        self.conn = sqlite3.connect('userinformation.db')
+        self.create_user_table()
         # Why are we calling user table before to_do table
         # what happens if we swap them?
 
@@ -19,18 +21,23 @@ class Schema:
           _is_deleted boolean,
           CreatedOn Date DEFAULT CURRENT_DATE,
           DueDate Date,
-          UserId INTEGER FOREIGNKEY REFERENCES User(_id)
-        );
+          emailid VARCHAR(320) 
+        ); 
         """
 
         self.conn.cursor().execute(query)
         self.conn.commit()
     
     def create_user_table(self):
-        # create user table in similar fashion
-        # come on give it a try it's okay if you make mistakes
-        pass
-
+        
+        query = """
+        CREATE TABLE IF NOT EXISTS "UserInformation" (
+           emailid  VARCHAR(320) PRIMARY KEY,
+           password VARCHAR(320) 
+        );       
+        """ 
+        self.conn.cursor().execute(query)
+        self.conn.commit()
 
 class ToDoModel:
     
@@ -49,11 +56,24 @@ class ToDoModel:
 
     def get_alldata(self):
         TABLENAME = "Todo"
-        query = 'select * FROM Todo'
+        query = f'select * FROM {TABLENAME}'
         result = self.conn.cursor().execute(query)
         self.conn.commit()
         return result.fetchall()
        
 
    # Similarly add functions to select, delete and update todo
+
+class User:
+
+    def __init__(self):
+        self.conn = sqlite3.connect('userinformation.db')
+
+    def create(self,email,password):
+         TABLENAME = "UserInformation"
+         query = f'insert into {TABLENAME} ' \
+                 f'(emailid, password) ' \
+                 f'values ("{email}","{password}")'
+         self.conn.cursor().execute(query)
+         self.conn.commit()
 
